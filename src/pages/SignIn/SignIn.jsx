@@ -29,7 +29,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="my-20 min-h-screen">
+    <div className="my-20">
       <div className="flex lg:flex-row flex-col-reverse justify-between items-center gap-8">
         <div className="md:w-full">
           <h1 className="text-center md:text-4xl text-3xl font-bold mb-10">
