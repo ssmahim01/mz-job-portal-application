@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext/AuthContext";
+import jobLogo from "/src/assets/job-logo.png";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -8,13 +9,13 @@ const Navbar = () => {
   const routes = (
     <>
       <li>
-        <a>Item 1</a>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <a>Parent</a>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <a>Item 3</a>
+        <NavLink to="/">Home</NavLink>
       </li>
     </>
   );
@@ -46,7 +47,14 @@ const Navbar = () => {
             {routes}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <div className="flex gap-2 items-center">
+          <img
+            className="w-10 h-10"
+            src={jobLogo}
+            alt="Logo of MZ Job Portal"
+          />
+          <h2 className="text-xl font-bold">MZ Job Portal</h2>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{routes}</ul>
@@ -54,10 +62,15 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <>
-          <button onClick={() => {
-            signOutUser()
-            alert("Log Out Successful");
-          }} className="btn btn-error text-white font-bold rounded-none">Sign Out</button>
+            <button
+              onClick={() => {
+                signOutUser();
+                alert("Log Out Successful");
+              }}
+              className="btn btn-error text-white font-bold rounded-none"
+            >
+              Sign Out
+            </button>
           </>
         ) : (
           <>
