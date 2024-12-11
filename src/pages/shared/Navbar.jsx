@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import jobLogo from "/src/assets/job-logo.png";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -21,10 +22,10 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-200 z-10 shadow-md fixed">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="border border-gray-300 btn btn-ghost lg:hidden shadow-md mr-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -49,11 +50,11 @@ const Navbar = () => {
         </div>
         <div className="flex gap-2 items-center">
           <img
-            className="w-10 h-10"
+            className="w-12 h-12"
             src={jobLogo}
             alt="Logo of MZ Job Portal"
           />
-          <h2 className="text-xl font-bold">MZ Job Portal</h2>
+          <h2 className="md:block hidden text-xl font-bold">MZ Job Portal</h2>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -65,7 +66,9 @@ const Navbar = () => {
             <button
               onClick={() => {
                 signOutUser();
-                alert("Log Out Successful");
+                toast.success("Log Out Successful", {
+                  position: "top-center"
+                 });
               }}
               className="btn btn-error text-white font-bold rounded-none"
             >

@@ -4,10 +4,10 @@ const Footer = () => {
   return (
     <footer className="footer bg-base-200 text-base-content p-10">
       <aside>
-        <figure className="w-14 h-14">
+        <figure className="w-16 h-16">
             <img className="w-full h-full" src={jobLogo} alt="MZ Job Portal" />
         </figure>
-        <p className="font-semibold">
+        <p className="text-base text-gray-800 font-bold">
           MZ Job Portal Ltd.
           <br />
           Providing reliable job since 2012
