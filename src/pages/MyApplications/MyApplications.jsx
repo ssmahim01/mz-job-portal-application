@@ -18,8 +18,8 @@ const MyApplications = () => {
         confirmButtonText: "Yes, delete it!"
       }).then((result) => {
         if (result.isConfirmed) {
-            fetch(`http://localhost:5000/job-applications/${id}`, {
-                method: 'DELETE'
+            fetch(`http://localhost:5000/job-application/${id}`, {
+                method: "DELETE",
             })
             .then(response => response.json())
             .then(data => {
@@ -38,10 +38,10 @@ const MyApplications = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/job-application?email=${user?.email}`)
+    fetch(`http://localhost:5000/job-application?email=${user.email}`)
       .then((response) => response.json())
       .then((data) => setJobs(data));
-  }, [user?.email]);
+  }, [user.email]);
 
   return (
     <div>
@@ -59,6 +59,7 @@ const MyApplications = () => {
               </th>
               <th>Name</th>
               <th>Job</th>
+              <th>Salary</th>
               <th>Deadline</th>
               <th>Action</th>
             </tr>
@@ -88,6 +89,9 @@ const MyApplications = () => {
                 <td className="font-semibold">
                     {job?.jobType}
                 </td>
+                <td className="font-semibold">
+                    {job?.salaryRange?.min} - {job?.salaryRange?.max}{job?.salaryRange?.currency}
+                </td>
                 <td className="font-semibold">{job?.applicationDeadline}</td>
                 <th>
                   <button onClick={() => handleDelete(job?._id)} className="btn btn-error btn-xs text-white font-medium">Delete</button>
@@ -99,6 +103,6 @@ const MyApplications = () => {
       </div>
     </div>
   );
-};
+}
 
 export default MyApplications;
