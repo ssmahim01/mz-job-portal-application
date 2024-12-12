@@ -9,14 +9,14 @@ const Navbar = () => {
 
   const routes = (
     <>
-      <li>
+      <li className="*:font-bold">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/">Home</NavLink>
+      <li className="*:font-bold">
+        <NavLink to="/jobs">All Jobs</NavLink>
       </li>
-      <li>
-        <NavLink to="/">Home</NavLink>
+      <li className="*:font-bold">
+        <NavLink to="/myApplications">My Applications</NavLink>
       </li>
     </>
   );
