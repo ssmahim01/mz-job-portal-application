@@ -1,9 +1,13 @@
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import { toast } from "react-toastify";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
     const {signInWithGoogle} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state || "/";
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
@@ -12,6 +16,7 @@ const SocialLogin = () => {
             toast.success(`${user.displayName}, Successfully logged in`, {
                 position: "top-center"
                });
+               navigate(from);
         })
         .catch(error => {
             const errorMessage = error.message;
