@@ -1,8 +1,19 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../pages/shared/Navbar";
 import Footer from "../pages/shared/Footer";
+import useAuth from "../hooks/useAuth";
 
 const MainLayout = () => {
+  const {loading} = useAuth();
+
+  if(loading){
+    return (
+      <div className="flex justify-center items-center lg:mt-60 mt-40">
+          <span className="loading loading-spinner text-success loading-lg"></span>
+      </div>
+  );
+  };
+
   return (
     <div>
       <Navbar />

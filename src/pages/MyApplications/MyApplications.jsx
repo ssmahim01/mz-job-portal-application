@@ -57,8 +57,8 @@ const MyApplications = () => {
               <th>
                 Serial No.
               </th>
-              <th>Name</th>
-              <th>Job</th>
+              <th>Info</th>
+              <th>Job Type</th>
               <th>Salary</th>
               <th>Deadline</th>
               <th>Action</th>
