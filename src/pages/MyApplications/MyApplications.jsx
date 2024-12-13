@@ -18,7 +18,7 @@ const MyApplications = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/job-application/${id}`, {
+        fetch(`https://mz-job-portal-server.vercel.app/job-application/${id}`, {
           method: "DELETE",
         })
           .then((response) => response.json())
@@ -40,7 +40,7 @@ const MyApplications = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/job-application?email=${user.email}`)
+    fetch(`https://mz-job-portal-server.vercel.app/job-application?email=${user.email}`)
       .then((response) => response.json())
       .then((data) => setJobs(data));
   }, [user.email]);
