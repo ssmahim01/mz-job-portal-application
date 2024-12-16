@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const MyApplications = () => {
   const { user } = useAuth();
@@ -18,7 +19,7 @@ const MyApplications = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://mz-job-portal-server.vercel.app/job-application/${id}`, {
+        fetch(`http://localhost:5000/job-application/${id}`, {
           method: "DELETE",
         })
           .then((response) => response.json())
@@ -40,9 +41,13 @@ const MyApplications = () => {
   };
 
   useEffect(() => {
-    fetch(`https://mz-job-portal-server.vercel.app/job-application?email=${user.email}`)
-      .then((response) => response.json())
-      .then((data) => setJobs(data));
+    // fetch(`http://localhost:5000/job-application?email=${user.email}`)
+    //   .then((response) => response.json())
+    //   .then((data) => setJobs(data));
+
+    axios.get(`http://localhost:5000/job-application?email=${user.email}`, {withCredentials: true})
+    .then(res => setJobs(res.data))
+
   }, [user.email]);
 
   return (

@@ -5,7 +5,7 @@ const HotJobs = () => {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
-        fetch("https://mz-job-portal-server.vercel.app/jobs")
+        fetch("http://localhost:5000/jobs")
         .then(response => response.json())
         .then(data => setJobs(data))
     } ,[]);
