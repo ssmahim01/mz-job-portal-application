@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             },
             {
               path: "/jobs/:id",
-              loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`),
+              loader: ({params}) => fetch(`https://mz-job-portal-server.vercel.app/jobs/${params.id}`),
               element: <PrivateRoute><JobDetails /></PrivateRoute>
             },
             {
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             },
             {
               path: "/viewApplications/:job_id",
-              loader: ({params}) => fetch(`http://localhost:5000/job-applications/jobs/${params.job_id}`),
+              loader: ({params}) => fetch(`https://mz-job-portal-server.vercel.app/job-applications/jobs/${params.job_id}`),
               element: <PrivateRoute><ViewApplications /></PrivateRoute>
             },
             {

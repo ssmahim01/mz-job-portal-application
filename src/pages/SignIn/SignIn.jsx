@@ -28,15 +28,15 @@ const SignIn = () => {
         setUser(user);
 
         const userEmail = {email: email};
-        axios.post('http://localhost:5000/jwt', userEmail, {withCredentials: true})
+        axios.post('https://mz-job-portal-server.vercel.app/jwt', userEmail, {withCredentials: true})
         .then(res => {
-          console.log(res.data);
+          // console.log(res.data);
         })
 
         toast.success("Sign In Successful", {
           position: "top-center"
          });
-        //  navigate(from);
+         navigate(from);
     })
 
     .catch(error => {

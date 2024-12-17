@@ -7,7 +7,7 @@ const MyPostedJobs = () => {
   const [postedJobs, setPostedJobs] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/jobs?email=${user?.email}`)
+    fetch(`https://mz-job-portal-server.vercel.app/jobs?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setPostedJobs(data));
   }, [user?.email]);
