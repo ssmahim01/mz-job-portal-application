@@ -11,12 +11,13 @@ import HotJobs from "../pages/Home/HotJobs";
 import AddJob from "../AddJob/AddJob";
 import MyPostedJobs from "../pages/MyPostedJobs/MyPostedJobs";
 import ViewApplications from "../pages/ViewApplications/ViewApplications";
+import Error from "../pages/ErrorPage/Error";
 
 const router = createBrowserRouter([
         {
           path: "/",
           element: <MainLayout />,
-          errorElement: <h2>Route Not Found</h2>,
+          errorElement: <Error />,
           children: [
             {
                 path: "/",
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
               path: "/jobs/:id",
-              loader: ({params}) => fetch(`https://mz-job-portal-server.vercel.app/jobs/${params.id}`),
+              loader: ({params}) => fetch(`https://mz-job-portal-server.vercel.app/jobs-collection/${params.id}`),
               element: <PrivateRoute><JobDetails /></PrivateRoute>
             },
             {
